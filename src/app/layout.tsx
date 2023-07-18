@@ -1,6 +1,15 @@
+"use client"
 import './globals.css'
+// import '../../node_modules/uikit/dist/css/uikit.css'
+// import '../../node_modules/uikit/dist/css/uikit.min.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Navbar from './components/navbar'
+import Sidebar from './components/sidebar'
+import { useState } from 'react'
+import { MdExpandLess, MdExpandMore } from 'react-icons/md'
+// import '../../node_modules/uikit/dist/js/uikit.min.js'
+// import UIkit from 'uikit'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -11,12 +20,31 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
-}) {
+}: any) {
+
+  const [isSidebar, setIsSidebar] = useState(false)
+  const toggleSidebar = () => {
+    setIsSidebar(!isSidebar)
+  }
+
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Navbar>
+          <button onClick={toggleSidebar}><span>{ isSidebar ? <MdExpandLess /> : <MdExpandMore />}toggleSidebar!</span></button>
+          </Navbar>
+        <div className='sidebar-container'>
+        <Sidebar open={isSidebar}>
+          <ul>
+            <li>aaa</li>
+            <li>bbb</li>
+            <li>ccc</li>
+            <li>ddd</li>
+          </ul>
+        </Sidebar>
+        <div className='content-main'>some content!</div>
+        </div>
+        </body>
     </html>
   )
 }

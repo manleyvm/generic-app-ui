@@ -1,0 +1,26 @@
+div.sidebar {
+    background-color: lime;
+    color: slategrey;
+    display: block;
+    overflow: hidden;
+    background-color: whitesmoke;
+    /* flex: 1 1; */
+}
+
+div.sidebar-hide {
+    background-color: blue;
+}
+
+div.blocklight {
+    width: 250px;
+    transition: width .2s;
+}
+
+div.blockdark {
+    width: 0px;
+    transition: width .1s;
+}
+
+ul :hover {
+    background-color: blue;
+}

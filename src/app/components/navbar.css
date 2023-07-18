@@ -1,0 +1,5 @@
+div.navbar {
+    background-color: red;
+    display: flex;
+    padding: 5px;
+}

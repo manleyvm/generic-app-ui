@@ -5,13 +5,33 @@ import './globals.scss'
 // import '../../node_modules/uikit/dist/css/uikit.min.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import Navbar from './components/navbar'
+// import Navbar from './components/navbar'
+
+
 import Sidebar from './components/sidebar'
 import { useState } from 'react'
 import { MdExpandLess, MdExpandMore } from 'react-icons/md'
 // import '../../node_modules/uikit/dist/js/uikit.min.js'
 // import UIkit from 'uikit'
-import { Button } from '@carbon/react';
+import {
+  Button,
+  Header,
+  HeaderName,
+  HeaderMenuButton,
+  // HeaderGlobalBar,
+  // HeaderNavigation,
+  // HeaderMenu,
+  // HeaderMenuItem,
+  HeaderSideNavItems,
+  HeaderMenuItem,
+  HeaderMenu,
+  SideNav,
+  SideNavItems,
+  Theme
+} from "@carbon/react";
+
+// import Header from '@carbon/react/es/components/UIShell/Header';
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -31,20 +51,47 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar>
+        {/* <Navbar>
           <button onClick={toggleSidebar}><span>{ isSidebar ? <MdExpandLess /> : <MdExpandMore />}toggleSidebar!</span></button>
-          </Navbar>
-        <div className='sidebar-container'>
-        <Sidebar open={isSidebar}>
+          </Navbar> */}
+      <Header aria-label="IBM Platform Name">
+          <HeaderMenuButton aria-label={isSidebar ? 'Close menu' : 'Open menu'} onClick={toggleSidebar} isActive={isSidebar} aria-expanded={isSidebar} />
+          <HeaderName href="#" prefix="IBM">
+            [Platform]
+          </HeaderName>
+          <SideNav aria-label="Side navigation" expanded={isSidebar} isPersistent={false} onSideNavBlur={toggleSidebar}>
+          <SideNav aria-label="Side navigation" expanded={isSidebar} isPersistent={false} onSideNavBlur={toggleSidebar}>
+          <SideNavItems>
+            <HeaderSideNavItems>
+              <HeaderMenuItem href="#">Link 1</HeaderMenuItem>
+              <HeaderMenuItem href="#">Link 2</HeaderMenuItem>
+              <HeaderMenuItem href="#">Link 3</HeaderMenuItem>
+              <HeaderMenu aria-label="Link 4" menuLinkName="Link 4">
+                <HeaderMenuItem href="#">Sub-link 1</HeaderMenuItem>
+                <HeaderMenuItem isActive href="#">
+                  Sub-link 2
+                </HeaderMenuItem>
+                <HeaderMenuItem href="#">Sub-link 3</HeaderMenuItem>
+              </HeaderMenu>
+            </HeaderSideNavItems>
+          </SideNavItems>
+        </SideNav>
+        </SideNav>
+      </Header>
+
+
+
+        {/* <div className='sidebar-container'> */}
+        {/* <Sidebar open={isSidebar}>
           <ul>
             <li>aaa</li>
             <li>bbb</li>
             <li>ccc</li>
             <li>ddd</li>
           </ul>
-        </Sidebar>
-        <div className='content-main'>some content!<Button>Button</Button></div>
-        </div>
+        </Sidebar> */}
+        {/* <div className='content-main'>some content!<Button>Button</Button></div> */}
+        {/* </div> */}
         </body>
     </html>
   )

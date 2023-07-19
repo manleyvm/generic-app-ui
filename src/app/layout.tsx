@@ -59,8 +59,10 @@ export default function RootLayout({
           <HeaderName href="#" prefix="IBM">
             [Platform]
           </HeaderName>
-          <SideNav aria-label="Side navigation" expanded={isSidebar} isPersistent={false} onSideNavBlur={toggleSidebar}>
-          <SideNav aria-label="Side navigation" expanded={isSidebar} isPersistent={false} onSideNavBlur={toggleSidebar}>
+          <SideNav aria-label="Side navigation" 
+          expanded={isSidebar} 
+          isPersistent={false} 
+          onSideNavBlur={toggleSidebar}>
           <SideNavItems>
             <HeaderSideNavItems>
               <HeaderMenuItem href="#">Link 1</HeaderMenuItem>
@@ -75,7 +77,6 @@ export default function RootLayout({
               </HeaderMenu>
             </HeaderSideNavItems>
           </SideNavItems>
-        </SideNav>
         </SideNav>
       </Header>
 

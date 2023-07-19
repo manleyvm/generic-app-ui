@@ -1,6 +1,7 @@
 "use client"
 import { useState } from 'react'
 import './navbar.css'
+import classes from './navbar.module.scss'
 
 export default function Navbar({
   children
@@ -11,7 +12,7 @@ export default function Navbar({
       setIslight(!islight)
   }
 
-    return (<div className='navbar'>
+    return (<div className={classes.navbar}>
         {children}
         </div>)
 

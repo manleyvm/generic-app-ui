@@ -1,5 +1,6 @@
 "use client"
-import './globals.css'
+import './globals.scss'
+// import './globals.css'
 // import '../../node_modules/uikit/dist/css/uikit.css'
 // import '../../node_modules/uikit/dist/css/uikit.min.css'
 import type { Metadata } from 'next'
@@ -10,7 +11,7 @@ import { useState } from 'react'
 import { MdExpandLess, MdExpandMore } from 'react-icons/md'
 // import '../../node_modules/uikit/dist/js/uikit.min.js'
 // import UIkit from 'uikit'
-
+import { Button } from '@carbon/react';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -42,7 +43,7 @@ export default function RootLayout({
             <li>ddd</li>
           </ul>
         </Sidebar>
-        <div className='content-main'>some content!</div>
+        <div className='content-main'>some content!<Button>Button</Button></div>
         </div>
         </body>
     </html>

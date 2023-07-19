@@ -22,7 +22,7 @@ import {
   Theme,
   GlobalTheme
 } from "@carbon/react";
-import { Search,  Notification, UserAvatar, Fade } from '@carbon/icons-react';
+import { Search,  Notification, UserAvatar, Fade, Switcher } from '@carbon/icons-react';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -52,6 +52,7 @@ export default function RootLayout({
               onClick={toggleSidebar} 
               isActive={isSidebar} 
               aria-expanded={isSidebar} />
+        <HeaderName href="#" prefix="Coles">SimplerTools</HeaderName>
               <HeaderGlobalBar>
             <HeaderGlobalAction aria-label="Search" onClick={action('search click')}>
               <Search size={20} />
@@ -62,6 +63,11 @@ export default function RootLayout({
             <HeaderGlobalAction aria-label="App Switcher" onClick={action('app-switcher click')} tooltipAlignment="end">
               <UserAvatar size={20} />
             </HeaderGlobalAction>
+            <HeaderGlobalAction aria-label="App Switcher" onClick={action('app-switcher click')} tooltipAlignment="end">
+              <Switcher size={20} />
+            </HeaderGlobalAction>
+
+            
           </HeaderGlobalBar>
             <SideNav aria-label="Side navigation" 
                 expanded={isSidebar} 

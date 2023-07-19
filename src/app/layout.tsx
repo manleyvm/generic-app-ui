@@ -47,47 +47,36 @@ export default function RootLayout({
       <body>
         <Theme theme="g90" >
           <Header aria-label="Coles Platform Name">
-              <HeaderMenuButton 
+          <HeaderMenuButton 
               aria-label={isSidebar ? 'Close menu' : 'Open menu'} 
               onClick={toggleSidebar} 
               isActive={isSidebar} 
               aria-expanded={isSidebar} />
-
-              {/* <Button onClick={toggleSidebar} aria-label={isSidebar ? 'Close menu' : 'Open menu'}>open!</Button> */}
-              <HeaderName href="/" prefix="Coles">SimplerTools</HeaderName>
               <HeaderGlobalBar>
-                <HeaderGlobalAction aria-label="Search" onClick={action('search click')}>
-                  <Search size={20} />
-                </HeaderGlobalAction>
-                <HeaderGlobalAction aria-label="Notifications" onClick={action('notification click')}>
-                  <Notification size={20} />
-                </HeaderGlobalAction>
-                <HeaderGlobalAction aria-label="App Switcher" onClick={action('app-switcher click')} tooltipAlignment="end">
-                  <UserAvatar size={20} />
-                  <span>4</span>
-                </HeaderGlobalAction>
-              </HeaderGlobalBar>
-              <HeaderMenuButton 
-              aria-label={isSidebar ? 'Close menu' : 'Open menu'} 
-              onClick={toggleSidebar} 
-              isActive={isSidebar} 
-              aria-expanded={isSidebar} />
+            <HeaderGlobalAction aria-label="Search" onClick={action('search click')}>
+              <Search size={20} />
+            </HeaderGlobalAction>
+            <HeaderGlobalAction aria-label="Notifications" onClick={action('notification click')}>
+              <Notification size={20} />
+            </HeaderGlobalAction>
+            <HeaderGlobalAction aria-label="App Switcher" onClick={action('app-switcher click')} tooltipAlignment="end">
+              <UserAvatar size={20} />
+            </HeaderGlobalAction>
+          </HeaderGlobalBar>
+            <SideNav aria-label="Side navigation" 
+                expanded={isSidebar} 
+                isPersistent={false} 
+                onSideNavBlur={toggleSidebar}>
+                <SideNavItems>
+                    <SideNavLink href="/dashboard">Dashboard!</SideNavLink>
+                    <SideNavLink href="/dashboard">Dashboard</SideNavLink>
+                    <SideNavLink href="/dashboard">Dashboard</SideNavLink>
+                    <SideNavLink href="/dashboard">Dashboard</SideNavLink>
+                    <SideNavLink href="/dashboard">Dashboard</SideNavLink>
+                    <SideNavLink href="/dashboard">Dashboard</SideNavLink>
+                </SideNavItems>
+              </SideNav>
           </Header>
-          <SideNav aria-label="Side navigation" 
-              expanded={isSidebar} 
-              isPersistent={false} 
-              onSideNavBlur={toggleSidebar}>
-              <SideNavItems>
-                {/* <HeaderSideNavItems style={{display: 'block'}}> */}
-                  <SideNavLink href="/dashboard">Dashboard!</SideNavLink>
-                  <SideNavMenuItem href="/dashboard">Dashboard</SideNavMenuItem>
-                  <SideNavMenuItem href="/dashboard">Dashboard</SideNavMenuItem>
-                  <SideNavMenuItem href="/dashboard">Dashboard</SideNavMenuItem>
-                  <SideNavMenuItem href="/dashboard">Dashboard</SideNavMenuItem>
-                  <SideNavMenuItem href="/dashboard">Dashboard</SideNavMenuItem>
-                {/* </HeaderSideNavItems> */}
-              </SideNavItems>
-            </SideNav>
         </Theme>
           <main>{children}</main>
       </body>

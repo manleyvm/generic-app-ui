@@ -52,7 +52,7 @@ export default function RootLayout({
               onClick={toggleSidebar} 
               isActive={isSidebar} 
               aria-expanded={isSidebar} />
-        <HeaderName href="#" prefix="Coles">SimplerTools</HeaderName>
+        <HeaderName href="/" prefix="Coles">SimplerTools</HeaderName>
               <HeaderGlobalBar>
             <HeaderGlobalAction aria-label="Search" onClick={action('search click')}>
               <Search size={20} />

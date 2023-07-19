@@ -1,36 +1,28 @@
 "use client"
 import './globals.scss'
-// import './globals.css'
-// import '../../node_modules/uikit/dist/css/uikit.css'
-// import '../../node_modules/uikit/dist/css/uikit.min.css'
+
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-// import Navbar from './components/navbar'
-
-
-import Sidebar from './components/sidebar'
 import { useState } from 'react'
-import { MdExpandLess, MdExpandMore } from 'react-icons/md'
-// import '../../node_modules/uikit/dist/js/uikit.min.js'
-// import UIkit from 'uikit'
+
 import {
   Button,
   Header,
   HeaderName,
   HeaderMenuButton,
-  // HeaderGlobalBar,
-  // HeaderNavigation,
-  // HeaderMenu,
-  // HeaderMenuItem,
   HeaderSideNavItems,
   HeaderMenuItem,
   HeaderMenu,
   SideNav,
   SideNavItems,
-  Theme
+  SideNavMenuItem,
+  HeaderGlobalBar,
+  HeaderGlobalAction,
+  SideNavLink,
+  Theme,
+  GlobalTheme
 } from "@carbon/react";
-
-// import Header from '@carbon/react/es/components/UIShell/Header';
+import { Search,  Notification, UserAvatar, Fade } from '@carbon/icons-react';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -47,53 +39,58 @@ export default function RootLayout({
   const toggleSidebar = () => {
     setIsSidebar(!isSidebar)
   }
-
+  const action = (message: string) => {
+    console.log(message);
+  }
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        {/* <Navbar>
-          <button onClick={toggleSidebar}><span>{ isSidebar ? <MdExpandLess /> : <MdExpandMore />}toggleSidebar!</span></button>
-          </Navbar> */}
-      <Header aria-label="IBM Platform Name">
-          <HeaderMenuButton aria-label={isSidebar ? 'Close menu' : 'Open menu'} onClick={toggleSidebar} isActive={isSidebar} aria-expanded={isSidebar} />
-          <HeaderName href="#" prefix="IBM">
-            [Platform]
-          </HeaderName>
+    <html>
+      <body>
+        <Theme theme="g90" >
+          <Header aria-label="Coles Platform Name">
+              <HeaderMenuButton 
+              aria-label={isSidebar ? 'Close menu' : 'Open menu'} 
+              onClick={toggleSidebar} 
+              isActive={isSidebar} 
+              aria-expanded={isSidebar} />
+
+              {/* <Button onClick={toggleSidebar} aria-label={isSidebar ? 'Close menu' : 'Open menu'}>open!</Button> */}
+              <HeaderName href="/" prefix="Coles">SimplerTools</HeaderName>
+              <HeaderGlobalBar>
+                <HeaderGlobalAction aria-label="Search" onClick={action('search click')}>
+                  <Search size={20} />
+                </HeaderGlobalAction>
+                <HeaderGlobalAction aria-label="Notifications" onClick={action('notification click')}>
+                  <Notification size={20} />
+                </HeaderGlobalAction>
+                <HeaderGlobalAction aria-label="App Switcher" onClick={action('app-switcher click')} tooltipAlignment="end">
+                  <UserAvatar size={20} />
+                  <span>4</span>
+                </HeaderGlobalAction>
+              </HeaderGlobalBar>
+              <HeaderMenuButton 
+              aria-label={isSidebar ? 'Close menu' : 'Open menu'} 
+              onClick={toggleSidebar} 
+              isActive={isSidebar} 
+              aria-expanded={isSidebar} />
+          </Header>
           <SideNav aria-label="Side navigation" 
-          expanded={isSidebar} 
-          isPersistent={false} 
-          onSideNavBlur={toggleSidebar}>
-          <SideNavItems>
-            <HeaderSideNavItems>
-              <HeaderMenuItem href="#">Link 1</HeaderMenuItem>
-              <HeaderMenuItem href="#">Link 2</HeaderMenuItem>
-              <HeaderMenuItem href="#">Link 3</HeaderMenuItem>
-              <HeaderMenu aria-label="Link 4" menuLinkName="Link 4">
-                <HeaderMenuItem href="#">Sub-link 1</HeaderMenuItem>
-                <HeaderMenuItem isActive href="#">
-                  Sub-link 2
-                </HeaderMenuItem>
-                <HeaderMenuItem href="#">Sub-link 3</HeaderMenuItem>
-              </HeaderMenu>
-            </HeaderSideNavItems>
-          </SideNavItems>
-        </SideNav>
-      </Header>
-
-
-
-        {/* <div className='sidebar-container'> */}
-        {/* <Sidebar open={isSidebar}>
-          <ul>
-            <li>aaa</li>
-            <li>bbb</li>
-            <li>ccc</li>
-            <li>ddd</li>
-          </ul>
-        </Sidebar> */}
-        {/* <div className='content-main'>some content!<Button>Button</Button></div> */}
-        {/* </div> */}
-        </body>
+              expanded={isSidebar} 
+              isPersistent={false} 
+              onSideNavBlur={toggleSidebar}>
+              <SideNavItems>
+                {/* <HeaderSideNavItems style={{display: 'block'}}> */}
+                  <SideNavLink href="/dashboard">Dashboard!</SideNavLink>
+                  <SideNavMenuItem href="/dashboard">Dashboard</SideNavMenuItem>
+                  <SideNavMenuItem href="/dashboard">Dashboard</SideNavMenuItem>
+                  <SideNavMenuItem href="/dashboard">Dashboard</SideNavMenuItem>
+                  <SideNavMenuItem href="/dashboard">Dashboard</SideNavMenuItem>
+                  <SideNavMenuItem href="/dashboard">Dashboard</SideNavMenuItem>
+                {/* </HeaderSideNavItems> */}
+              </SideNavItems>
+            </SideNav>
+        </Theme>
+          <main>{children}</main>
+      </body>
     </html>
   )
 }
